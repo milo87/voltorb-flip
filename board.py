@@ -1,3 +1,4 @@
+from typing import Optional
 from tile import Tile, Type
 import random
 
@@ -19,7 +20,10 @@ class Board:
             else:
                 self.cells.append(Tile(Type.VOLTORB))
 
-    def get_cell(self, x: int, y: int) -> Tile:
+    def get_cell(self, x: int, y: int) -> Optional[Tile]:
+        if x < 0 or x > self.width - 1 or y < 0 or y > self.height:
+            return None
+
         return self.cells[y * self.width + x]
 
     def get_row_value(self, row: int) -> int:

@@ -18,7 +18,7 @@ class Tile:
     def value(self) -> int:
         return self.type.value
 
-    def toggle_mark(self) -> int:
+    def toggle_mark(self) -> None:
         self.unrevealed_index = (self.unrevealed_index + 1) % 3
 
     def __str__(self) -> Union[int, str]:
